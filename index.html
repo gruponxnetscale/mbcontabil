@@ -21,7 +21,8 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{font-family:'Poppins',system-ui,sans-serif;color:#141414;background:#fff;-webkit-font-smoothing:antialiased;line-height:1.55}
+body{font-family:'Poppins',system-ui,sans-serif;color:#141414;background:#fff;-webkit-font-smoothing:antialiased;line-height:1.55;-webkit-tap-highlight-color:rgba(245,179,1,.25);overflow-x:hidden}
+img{max-width:100%}
 a{color:#141414;text-decoration:none}
 a:hover{color:#F5B301}
 @keyframes mbpulse{0%{box-shadow:0 0 0 0 rgba(37,211,102,.55)}70%{box-shadow:0 0 0 16px rgba(37,211,102,0)}100%{box-shadow:0 0 0 0 rgba(37,211,102,0)}}
@@ -33,7 +34,7 @@ a:hover{color:#F5B301}
 .mb-heroimg{height:420px!important}
 .mb-wedge{display:none!important}
 .mb-grid4{grid-template-columns:repeat(2,1fr)!important}
-.mb-grid3{grid-template-columns:1fr!important}
+.mb-grid3{grid-template-columns:repeat(2,1fr)!important}
 .mb-grid2{grid-template-columns:1fr!important}
 .mb-footgrid{grid-template-columns:1fr!important;gap:32px!important}
 .mb-stats{grid-template-columns:repeat(2,1fr)!important;gap:30px 20px!important}
@@ -42,6 +43,13 @@ a:hover{color:#F5B301}
 }
 @media(max-width:640px){
 .mb-grid4{grid-template-columns:1fr!important}
+.mb-grid3{grid-template-columns:1fr!important}
+.mb-wa{width:54px!important;height:54px!important;bottom:calc(16px + env(safe-area-inset-bottom))!important;right:16px!important}
+.mb-wa svg{width:28px!important;height:28px!important}
+.mb-offer{padding:26px 20px!important}
+.mb-faqbtn{padding:18px 18px!important}
+.mb-foot{padding:44px 20px 22px!important}
+.mb-footbottom{flex-direction:column!important;align-items:flex-start!important;gap:4px!important}
 .mb-h1{font-size:33px!important;letter-spacing:-.9px!important}
 .mb-sec{padding-top:54px!important;padding-bottom:54px!important}
 .mb-hero{padding-top:112px!important;padding-bottom:54px!important}
@@ -55,11 +63,17 @@ a:hover{color:#F5B301}
 .mb-statnum{font-size:33px!important}
 .mb-pad{padding:22px!important}
 .mb-logo{height:42px!important}
+.mb-headcta{display:none!important}
 }
 @media(max-width:400px){
-.mb-h1{font-size:29px!important}
-.mb-h2{font-size:24px!important}
+.mb-h1{font-size:28px!important}
+.mb-h2{font-size:23px!important}
 .mb-stats{grid-template-columns:1fr!important}
+.mb-band{font-size:17px!important;padding:22px 16px!important}
+.mb-headcta{padding:12px 13px!important}
+.mb-logo{height:38px!important}
+.mb-ctah2{font-size:25px!important}
+.mb-heroctas>a{width:100%!important;justify-content:center!important}
 }
 </style>
 </helmet>
@@ -106,7 +120,7 @@ a:hover{color:#F5B301}
 <span style="width:7px;height:7px;border-radius:50%;background:#FFD65C"></span>14 estados atendidos</span>
 <h1 class="mb-h1" style="font-size:50px;line-height:1.1;font-weight:700;letter-spacing:-1.4px;color:#fff;text-wrap:balance">Ajudamos empresários a <span style="color:#FFD65C">diminuir seus impostos</span> sem burocracia.</h1>
 <p class="mb-lead" style="font-size:17.5px;line-height:1.65;color:#C9C4B8;margin:22px 0 32px;max-width:520px;text-wrap:pretty">Da abertura da empresa ao planejamento tributário, a MB Contábil assume a parte contábil e fiscal do seu negócio — para você decidir com números claros e pagar só o imposto que é devido.</p>
-<div style="display:flex;flex-wrap:wrap;gap:14px">
+<div style="display:flex;flex-wrap:wrap;gap:14px" class="mb-heroctas">
 <a href="{{ wa }}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:9px;background:#F5B301;color:#0E0E0E;font-weight:700;font-size:14.5px;letter-spacing:.6px;text-transform:uppercase;padding:18px 30px;border-radius:9px;box-shadow:0 10px 26px rgba(245,179,1,.38)" style-hover="background:#DDA000;transform:translateY(-2px)">
 <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.2-1.7-.9-2-1s-.5-.1-.7.2-.8 1-.9 1.1-.3.2-.6.1c-.9-.4-1.8-.9-2.5-1.7-.5-.6-1-1.2-1.4-1.9-.2-.3 0-.4.1-.6l.5-.6c.1-.2.2-.3.3-.5s0-.4 0-.5-.7-1.6-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.9.9-1.1 2-.9 3.2.4 1.5 1.2 2.8 2.3 3.9 1.4 1.6 3.1 2.7 5.1 3.3 1.2.4 2.3.4 3.2-.4.4-.4.7-.9.8-1.4.1-.3.1-.6 0-.7l-.5-.2zM12 2a10 10 0 0 0-8.6 15l-1.3 4.8 4.9-1.3A10 10 0 1 0 12 2z"/></svg>
 Falar com um contador</a>
@@ -165,7 +179,7 @@ Falar com um contador</a>
 </div>
 <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:18px;align-items:stretch" class="mb-grid4">
 <sc-for list="{{ offers }}" as="o" hint-placeholder-count="4">
-<div data-reveal class="mb-pad" style="display:flex;flex-direction:column;text-align:center;background:{{ o.bg }};border:1px solid {{ o.border }};border-radius:14px;padding:32px 24px">
+<div data-reveal class="mb-pad mb-offer" style="display:flex;flex-direction:column;text-align:center;background:{{ o.bg }};border:1px solid {{ o.border }};border-radius:14px;padding:32px 24px">
 <span style="margin:0 auto 18px;color:{{ o.icon }}"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="{{ o.d1 }}"></path><path d="{{ o.d2 }}"></path></svg></span>
 <div style="font-size:20px;font-weight:700;color:{{ o.title_color }};line-height:1.25;margin-bottom:12px">{{ o.title }}</div>
 <div style="font-size:14px;line-height:1.6;color:{{ o.desc_color }};margin-bottom:22px;flex:1">{{ o.desc }}</div>
@@ -269,7 +283,7 @@ Fazer 1º contato</a>
 <div style="display:flex;flex-direction:column;gap:12px">
 <sc-for list="{{ faqs }}" as="q" hint-placeholder-count="7">
 <div data-reveal style="background:#fff;border:1px solid #E6E3DC;border-radius:12px;overflow:hidden">
-<button onClick="{{ q.toggle }}" aria-expanded="{{ q.open }}" style="width:100%;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:20px 22px;background:transparent;border:0;cursor:pointer;text-align:left;font-family:inherit">
+<button onClick="{{ q.toggle }}" aria-expanded="{{ q.open }}" class="mb-faqbtn" style="width:100%;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:20px 22px;background:transparent;border:0;cursor:pointer;text-align:left;font-family:inherit">
 <span style="font-size:16px;font-weight:600;color:#141414;line-height:1.4">{{ q.q }}</span>
 <sc-if value="{{ q.open }}" hint-placeholder-val="{{ false }}">
 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#F5B301" stroke-width="2.4" stroke-linecap="round" style="flex-shrink:0"><path d="M5 12h14"></path></svg>
@@ -302,7 +316,7 @@ Conversar pelo WhatsApp</a>
 
 </main>
 
-<footer style="background:#0A0A0A;color:#C9C4B8;padding:54px 24px 26px">
+<footer class="mb-foot" style="background:#0A0A0A;color:#C9C4B8;padding:54px 24px 26px">
 <div style="max-width:1200px;margin:0 auto">
 <div style="display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;padding-bottom:38px;border-bottom:1px solid rgba(255,255,255,.1)" class="mb-footgrid">
 <div>
@@ -333,14 +347,14 @@ Conversar pelo WhatsApp</a>
 </div>
 </div>
 </div>
-<div style="padding-top:22px;display:flex;flex-wrap:wrap;gap:6px 10px;justify-content:space-between;align-items:center">
+<div class="mb-footbottom" style="padding-top:22px;display:flex;flex-wrap:wrap;gap:6px 10px;justify-content:space-between;align-items:center">
 <span style="font-size:12.5px;color:#6B6B6B;line-height:1.6">MB Contábil · CNPJ 26.867.831/0001-59</span>
 <span style="font-size:12.5px;color:#6B6B6B">© 2026 MB Contábil. Todos os direitos reservados.</span>
 </div>
 </div>
 </footer>
 
-<a href="{{ wa }}" target="_blank" rel="noopener" aria-label="Falar no WhatsApp" style="position:fixed;bottom:24px;right:24px;z-index:200;width:60px;height:60px;border-radius:50%;background:#25D366;color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 24px rgba(37,211,102,.45);animation:mbpulse 2.2s infinite" style-hover="background:#20BD5A;transform:scale(1.06)">
+<a href="{{ wa }}" target="_blank" rel="noopener" aria-label="Falar no WhatsApp" class="mb-wa" style="position:fixed;bottom:24px;right:24px;z-index:200;width:60px;height:60px;border-radius:50%;background:#25D366;color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 24px rgba(37,211,102,.45);animation:mbpulse 2.2s infinite" style-hover="background:#20BD5A;transform:scale(1.06)">
 <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.2-1.7-.9-2-1s-.5-.1-.7.2-.8 1-.9 1.1-.3.2-.6.1c-.9-.4-1.8-.9-2.5-1.7-.5-.6-1-1.2-1.4-1.9-.2-.3 0-.4.1-.6l.5-.6c.1-.2.2-.3.3-.5s0-.4 0-.5-.7-1.6-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.9.9-1.1 2-.9 3.2.4 1.5 1.2 2.8 2.3 3.9 1.4 1.6 3.1 2.7 5.1 3.3 1.2.4 2.3.4 3.2-.4.4-.4.7-.9.8-1.4.1-.3.1-.6 0-.7l-.5-.2zM12 2a10 10 0 0 0-8.6 15l-1.3 4.8 4.9-1.3A10 10 0 1 0 12 2z"/></svg>
 </a>
 
