@@ -31,7 +31,7 @@ a:hover{color:#0FBC8C}
 @media(max-width:980px){
 .mb-nav{display:none!important}
 .mb-burger{display:inline-flex!important}
-.mb-headcta .mb-ctatext{display:none}
+.mb-headcta{display:none!important}
 .mb-herogrid{grid-template-columns:1fr!important;gap:36px!important}
 .mb-heroimg{height:420px!important}
 .mb-wedge{display:none!important}
@@ -43,7 +43,15 @@ a:hover{color:#0FBC8C}
 .mb-contact{grid-template-columns:1fr!important;gap:0!important}
 .mb-contactcard{margin-bottom:0!important;transform:none!important}
 }
+@keyframes mbfade{from{opacity:0}to{opacity:1}}
+@keyframes mbpop{from{opacity:0;transform:translateY(18px) scale(.94)}to{opacity:1;transform:none}}
 @media(max-width:640px){
+.mb-ctapair>a,.mb-heroctas>a{width:100%!important}
+.mb-popup{max-width:100%!important;border-radius:24px!important}
+.mb-popup-in{padding:46px 22px 34px!important}
+.mb-popup-p{font-size:15px!important}
+.mb-popup-ctas>a{width:100%!important}
+.mb-popup-h{font-size:27px!important;letter-spacing:-.8px!important}
 .mb-grid4{grid-template-columns:1fr!important}
 .mb-grid3{grid-template-columns:1fr!important}
 .mb-wa{width:54px!important;height:54px!important;bottom:calc(16px + env(safe-area-inset-bottom))!important;right:16px!important}
@@ -64,7 +72,16 @@ a:hover{color:#0FBC8C}
 .mb-stats{padding:32px 20px!important}
 .mb-statnum{font-size:33px!important}
 .mb-pad{padding:22px!important}
-.mb-logo{height:40px!important}
+.mb-logo{height:52px!important}
+.mb-sec,.mb-hero{padding-left:20px!important;padding-right:20px!important}
+.mb-grid4,.mb-grid3,.mb-grid2{gap:14px!important}
+.mb-rule{width:150px!important}
+.mb-footlogo{height:58px!important}
+.mb-faqq{font-size:15px!important}
+.mb-contactcard{padding:28px 22px!important}
+.mb-ctabox{margin-left:0!important;margin-right:0!important}
+.mb-logolink{margin-left:0!important}
+.mb-stepnum{font-size:34px!important;left:16px!important}
 .mb-headcta{display:none!important}
 }
 @media(max-width:400px){
@@ -73,40 +90,46 @@ a:hover{color:#0FBC8C}
 .mb-stats{grid-template-columns:1fr!important}
 .mb-band{font-size:17px!important;padding:22px 16px!important}
 .mb-headcta{padding:12px 13px!important}
-.mb-logo{height:34px!important}
+.mb-logo{height:44px!important}
 .mb-ctah2{font-size:25px!important}
 .mb-heroctas>a{width:100%!important;justify-content:center!important}
+.mb-sec,.mb-hero{padding-left:16px!important;padding-right:16px!important}
+.mb-pad{padding:18px!important}
+.mb-rule{width:120px!important}
+.mb-popup-in{padding:38px 18px 28px!important}
+.mb-popup-h{font-size:24px!important}
+.mb-statnum{font-size:29px!important}
 }
 </style>
 </helmet>
 
 <div style="min-height:100vh;overflow-x:hidden">
 
-<header style="position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,.94);backdrop-filter:blur(12px);border-bottom:1px solid #E6E3DC">
-<div style="max-width:1200px;margin:0 auto;padding:13px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px">
-<a href="#top" aria-label="MB Contábil — início" style="display:flex;align-items:center">
-<img src="assets/mb-logo-header.png" alt="MB Contábil Life" class="mb-logo" style="height:46px;width:auto;display:block" />
+<header style="position:fixed;top:0;left:0;right:0;z-index:100;background:#080808;border-bottom:1px solid rgba(255,255,255,.08)">
+<div style="max-width:1200px;margin:0 auto;padding:9px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px">
+<a href="#top" aria-label="MB Contábil — início" class="mb-logolink" style="display:flex;align-items:center;margin-left:18px">
+<img src="assets/mb-logo-header.png" alt="MB Contábil Life" class="mb-logo" style="height:64px;width:auto;display:block" />
 </a>
 <nav style="display:flex;align-items:center;gap:28px" aria-label="Navegação principal" class="mb-nav">
-<a href="#top" style="font-size:14.5px;font-weight:500;color:#141414">Home</a>
-<a href="#servicos" style="font-size:14.5px;font-weight:500;color:#141414">Nossos serviços</a>
-<a href="#porque" style="font-size:14.5px;font-weight:500;color:#141414">Por que nós</a>
-<a href="#como-funciona" style="font-size:14.5px;font-weight:500;color:#141414">Como funciona</a>
-<a href="#duvidas" style="font-size:14.5px;font-weight:500;color:#141414">Dúvidas</a>
+<a href="#top" style="font-size:14.5px;font-weight:500;color:#EDEAE3" style-hover="color:#0FBC8C">Home</a>
+<a href="#servicos" style="font-size:14.5px;font-weight:500;color:#EDEAE3" style-hover="color:#0FBC8C">Nossos serviços</a>
+<a href="#porque" style="font-size:14.5px;font-weight:500;color:#EDEAE3" style-hover="color:#0FBC8C">Por que nós</a>
+<a href="#como-funciona" style="font-size:14.5px;font-weight:500;color:#EDEAE3" style-hover="color:#0FBC8C">Como funciona</a>
+<a href="#duvidas" style="font-size:14.5px;font-weight:500;color:#EDEAE3" style-hover="color:#0FBC8C">Dúvidas</a>
 </nav>
-<a href="{{ wa }}" target="_blank" rel="noopener" aria-label="Entre em contato pelo WhatsApp" style="display:inline-flex;align-items:center;gap:8px;background:#0FBC8C;color:#0E0E0E;font-weight:700;font-size:13px;letter-spacing:.6px;text-transform:uppercase;padding:13px 20px;border-radius:8px;box-shadow:0 6px 18px rgba(15,188,140,.3)" style-hover="background:#DDA000;transform:translateY(-1px)" class="mb-headcta">
+<a href="{{ wa }}" target="_blank" rel="noopener" aria-label="Entre em contato pelo WhatsApp" style="display:inline-flex;align-items:center;gap:8px;background:#0FBC8C;color:#0E0E0E;font-weight:700;font-size:13px;letter-spacing:.6px;text-transform:uppercase;padding:13px 20px;border-radius:8px;box-shadow:0 6px 18px rgba(15,188,140,.3)" style-hover="background:#0A8F6A;transform:translateY(-1px)" class="mb-headcta">
 <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.2-1.7-.9-2-1s-.5-.1-.7.2-.8 1-.9 1.1-.3.2-.6.1c-.9-.4-1.8-.9-2.5-1.7-.5-.6-1-1.2-1.4-1.9-.2-.3 0-.4.1-.6l.5-.6c.1-.2.2-.3.3-.5s0-.4 0-.5-.7-1.6-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.9.9-1.1 2-.9 3.2.4 1.5 1.2 2.8 2.3 3.9 1.4 1.6 3.1 2.7 5.1 3.3 1.2.4 2.3.4 3.2-.4.4-.4.7-.9.8-1.4.1-.3.1-.6 0-.7l-.5-.2zM12 2a10 10 0 0 0-8.6 15l-1.3 4.8 4.9-1.3A10 10 0 1 0 12 2z"/></svg>
 <span class="mb-ctatext">Entre em contato</span></a>
-<button onClick="{{ toggleMenu }}" aria-label="Abrir menu" aria-expanded="{{ menuOpen }}" style="display:none;background:transparent;border:0;cursor:pointer;padding:6px;color:#141414" class="mb-burger">
+<button onClick="{{ toggleMenu }}" aria-label="Abrir menu" aria-expanded="{{ menuOpen }}" style="display:none;background:transparent;border:0;cursor:pointer;padding:6px;color:#0FBC8C" class="mb-burger">
 <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"></path></svg></button>
 </div>
 <sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
-<div style="border-top:1px solid #E6E3DC;background:#fff;padding:10px 24px 18px;display:flex;flex-direction:column;gap:2px">
-<a href="#servicos" onClick="{{ closeMenu }}" style="padding:12px 4px;font-weight:600;border-bottom:1px solid #F2F0EB">Nossos serviços</a>
-<a href="#contrate" onClick="{{ closeMenu }}" style="padding:12px 4px;font-weight:600;border-bottom:1px solid #F2F0EB">Contrate agora</a>
-<a href="#porque" onClick="{{ closeMenu }}" style="padding:12px 4px;font-weight:600;border-bottom:1px solid #F2F0EB">Por que nós</a>
-<a href="#como-funciona" onClick="{{ closeMenu }}" style="padding:12px 4px;font-weight:600;border-bottom:1px solid #F2F0EB">Como funciona</a>
-<a href="#duvidas" onClick="{{ closeMenu }}" style="padding:12px 4px;font-weight:600">Dúvidas</a>
+<div style="border-top:1px solid rgba(255,255,255,.1);background:#080808;padding:10px 24px 18px;display:flex;flex-direction:column;gap:2px">
+<a href="#servicos" onClick="{{ closeMenu }}" style="padding:12px 4px;font-weight:600;color:#EDEAE3;border-bottom:1px solid rgba(255,255,255,.08)">Nossos serviços</a>
+<a href="#contrate" onClick="{{ closeMenu }}" style="padding:12px 4px;font-weight:600;color:#EDEAE3;border-bottom:1px solid rgba(255,255,255,.08)">Contrate agora</a>
+<a href="#porque" onClick="{{ closeMenu }}" style="padding:12px 4px;font-weight:600;color:#EDEAE3;border-bottom:1px solid rgba(255,255,255,.08)">Por que nós</a>
+<a href="#como-funciona" onClick="{{ closeMenu }}" style="padding:12px 4px;font-weight:600;color:#EDEAE3;border-bottom:1px solid rgba(255,255,255,.08)">Como funciona</a>
+<a href="#duvidas" onClick="{{ closeMenu }}" style="padding:12px 4px;font-weight:600;color:#EDEAE3">Dúvidas</a>
 </div>
 </sc-if>
 </header>
@@ -123,10 +146,8 @@ a:hover{color:#0FBC8C}
 <h1 class="mb-h1" style="font-size:50px;line-height:1.1;font-weight:700;letter-spacing:-1.4px;color:#fff;text-wrap:balance">Ajudamos empresários e clínicas médicas a <span style="color:#5BE3B3">diminuírem seus impostos</span> sem burocracia.</h1>
 <p class="mb-lead" style="font-size:17.5px;line-height:1.65;color:#C9C4B8;margin:22px 0 32px;max-width:520px;text-wrap:pretty">Da abertura da empresa ao planejamento tributário, a MB Contábil assume a parte contábil e fiscal do seu negócio — para você decidir com números claros e pagar só o imposto que é devido.</p>
 <div style="display:flex;flex-wrap:wrap;gap:14px" class="mb-heroctas">
-<a href="{{ wa }}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:9px;background:#0FBC8C;color:#0E0E0E;font-weight:700;font-size:14.5px;letter-spacing:.6px;text-transform:uppercase;padding:18px 30px;border-radius:9px;box-shadow:0 10px 26px rgba(15,188,140,.38)" style-hover="background:#DDA000;transform:translateY(-2px)">
-<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.2-1.7-.9-2-1s-.5-.1-.7.2-.8 1-.9 1.1-.3.2-.6.1c-.9-.4-1.8-.9-2.5-1.7-.5-.6-1-1.2-1.4-1.9-.2-.3 0-.4.1-.6l.5-.6c.1-.2.2-.3.3-.5s0-.4 0-.5-.7-1.6-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.9.9-1.1 2-.9 3.2.4 1.5 1.2 2.8 2.3 3.9 1.4 1.6 3.1 2.7 5.1 3.3 1.2.4 2.3.4 3.2-.4.4-.4.7-.9.8-1.4.1-.3.1-.6 0-.7l-.5-.2zM12 2a10 10 0 0 0-8.6 15l-1.3 4.8 4.9-1.3A10 10 0 1 0 12 2z"/></svg>
-Falar com um contador</a>
-<a href="#servicos" style="display:inline-flex;align-items:center;gap:8px;background:transparent;color:#fff;font-weight:700;font-size:14.5px;letter-spacing:.6px;text-transform:uppercase;padding:18px 28px;border-radius:9px;border:1.5px solid rgba(255,255,255,.35)" style-hover="border-color:#fff;background:rgba(255,255,255,.08)">Ver serviços</a>
+<a href="{{ waAbrir }}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;justify-content:center;gap:9px;background:#0FBC8C;color:#0E0E0E;font-weight:700;font-size:14.5px;letter-spacing:.5px;text-transform:uppercase;padding:19px 32px;border-radius:100px;box-shadow:0 10px 26px rgba(15,188,140,.38)" style-hover="background:#0A8F6A;color:#fff;transform:translateY(-2px)">Abra sua empresa</a>
+<a href="{{ waTrocar }}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;justify-content:center;gap:9px;background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.4);font-weight:700;font-size:14.5px;letter-spacing:.5px;text-transform:uppercase;padding:19px 32px;border-radius:100px" style-hover="border-color:#0FBC8C;background:rgba(15,188,140,.12);color:#5BE3B3;transform:translateY(-2px)">Trocar de contador</a>
 </div>
 </div>
 </div>
@@ -215,12 +236,12 @@ Falar com um contador</a>
 <div style="max-width:640px;margin:0 0 44px" data-reveal>
 <span style="font-size:12.5px;font-weight:700;letter-spacing:1.6px;text-transform:uppercase;color:#6B6B6B">É muito fácil iniciar essa parceria!</span>
 <h2 class="mb-h2" style="font-size:34px;font-weight:400;letter-spacing:-.9px;line-height:1.15;margin-top:10px;color:#141414">Veja abaixo <strong style="font-weight:700">o passo a passo</strong><span style="color:#0FBC8C">.</span></h2>
-<div style="width:210px;height:4px;background:#0FBC8C;border-radius:2px;margin-top:18px"></div>
+<div class="mb-rule" style="width:210px;height:4px;background:#0FBC8C;border-radius:2px;margin-top:18px"></div>
 </div>
 <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:18px;align-items:stretch" class="mb-grid4">
 <sc-for list="{{ steps }}" as="st" hint-placeholder-count="4">
 <div data-reveal style="display:flex;flex-direction:column;padding-top:22px;position:relative">
-<span style="position:absolute;top:0;left:20px;z-index:1;font-size:40px;font-weight:800;line-height:1;letter-spacing:-1.5px;color:#0FBC8C">{{ st.num }}</span>
+<span class="mb-stepnum" style="position:absolute;top:0;left:20px;z-index:1;font-size:40px;font-weight:800;line-height:1;letter-spacing:-1.5px;color:#0FBC8C">{{ st.num }}</span>
 <div class="mb-pad" style="flex:1;background:#fff;border:1px solid #E6E3DC;border-radius:12px;padding:34px 24px 28px;transition:transform .25s,box-shadow .25s" style-hover="transform:translateY(-4px);box-shadow:0 18px 34px -18px rgba(0,0,0,.18)">
 <div style="font-size:17px;font-weight:700;margin-bottom:10px;color:#141414">{{ st.title }}</div>
 <div style="font-size:14px;color:#6B6B6B;line-height:1.65">{{ st.desc }}</div>
@@ -228,10 +249,9 @@ Falar com um contador</a>
 </div>
 </sc-for>
 </div>
-<div style="text-align:center;margin-top:40px" data-reveal>
-<a href="{{ wa }}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:9px;background:#0FBC8C;color:#0E0E0E;font-weight:700;font-size:14.5px;letter-spacing:.5px;padding:17px 32px;border-radius:9px;box-shadow:0 10px 26px rgba(15,188,140,.35)" style-hover="background:#DDA000;transform:translateY(-2px)">
-<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.2-1.7-.9-2-1s-.5-.1-.7.2-.8 1-.9 1.1-.3.2-.6.1c-.9-.4-1.8-.9-2.5-1.7-.5-.6-1-1.2-1.4-1.9-.2-.3 0-.4.1-.6l.5-.6c.1-.2.2-.3.3-.5s0-.4 0-.5-.7-1.6-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.9.9-1.1 2-.9 3.2.4 1.5 1.2 2.8 2.3 3.9 1.4 1.6 3.1 2.7 5.1 3.3 1.2.4 2.3.4 3.2-.4.4-.4.7-.9.8-1.4.1-.3.1-.6 0-.7l-.5-.2zM12 2a10 10 0 0 0-8.6 15l-1.3 4.8 4.9-1.3A10 10 0 1 0 12 2z"/></svg>
-Fazer 1º contato</a>
+<div class="mb-ctapair" style="display:flex;flex-wrap:wrap;gap:14px;justify-content:center;margin-top:44px" data-reveal>
+<a href="{{ waAbrir }}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;justify-content:center;gap:9px;background:#0FBC8C;color:#0E0E0E;font-weight:700;font-size:14.5px;letter-spacing:.5px;text-transform:uppercase;padding:19px 32px;border-radius:100px;box-shadow:0 10px 26px rgba(15,188,140,.38)" style-hover="background:#0A8F6A;color:#fff;transform:translateY(-2px)">Abra sua empresa</a>
+<a href="{{ waTrocar }}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;justify-content:center;gap:9px;background:#0E0E0E;color:#fff;border:1.5px solid #0E0E0E;font-weight:700;font-size:14.5px;letter-spacing:.5px;text-transform:uppercase;padding:19px 32px;border-radius:100px" style-hover="background:#0FBC8C;color:#0E0E0E;border-color:#0FBC8C;transform:translateY(-2px)">Trocar de contador</a>
 </div>
 </div>
 </section>
@@ -255,7 +275,7 @@ Fazer 1º contato</a>
 <p style="font-size:15px;line-height:1.65;color:#141414;margin-bottom:20px">{{ t.quote }}</p>
 <div style="display:flex;align-items:center;gap:12px">
 <sc-if value="{{ t.hasPhoto }}" hint-placeholder-val="{{ false }}">
-<img src="{{ t.photo }}" alt="{{ t.name }}" style="width:44px;height:44px;border-radius:50%;object-fit:cover;object-position:57% 26%;display:block;flex-shrink:0" />
+{{ t.avatar }}
 </sc-if>
 <sc-if value="{{ t.noPhoto }}" hint-placeholder-val="{{ true }}">
 <span style="width:44px;height:44px;border-radius:50%;background:linear-gradient(140deg,#1F1B12,#0E0E0E);color:#fff;font-weight:700;font-size:16px;display:flex;align-items:center;justify-content:center;flex-shrink:0">{{ t.initial }}</span>
@@ -308,9 +328,10 @@ Fazer 1º contato</a>
 <div style="position:relative;z-index:1;max-width:700px;margin:0 auto" data-reveal>
 <h2 class="mb-ctah2" style="font-size:40px;font-weight:700;letter-spacing:-1.2px;line-height:1.15;color:#fff;text-wrap:balance">Fale conosco agora mesmo</h2>
 <p style="font-size:17px;color:#C9C4B8;margin:20px 0 32px;line-height:1.65">Estamos prontos para te atender. Manda uma mensagem contando sobre a sua empresa — a primeira conversa é sem compromisso e você já sai com um diagnóstico do seu cenário tributário.</p>
-<a href="{{ wa }}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:10px;background:#0FBC8C;color:#0E0E0E;font-weight:700;font-size:15.5px;letter-spacing:.6px;text-transform:uppercase;padding:20px 36px;border-radius:10px;box-shadow:0 12px 30px rgba(15,188,140,.42)" style-hover="background:#DDA000;transform:translateY(-2px)">
-<svg width="23" height="23" viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.2-1.7-.9-2-1s-.5-.1-.7.2-.8 1-.9 1.1-.3.2-.6.1c-.9-.4-1.8-.9-2.5-1.7-.5-.6-1-1.2-1.4-1.9-.2-.3 0-.4.1-.6l.5-.6c.1-.2.2-.3.3-.5s0-.4 0-.5-.7-1.6-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.9.9-1.1 2-.9 3.2.4 1.5 1.2 2.8 2.3 3.9 1.4 1.6 3.1 2.7 5.1 3.3 1.2.4 2.3.4 3.2-.4.4-.4.7-.9.8-1.4.1-.3.1-.6 0-.7l-.5-.2zM12 2a10 10 0 0 0-8.6 15l-1.3 4.8 4.9-1.3A10 10 0 1 0 12 2z"/></svg>
-Conversar pelo WhatsApp</a>
+<div class="mb-ctapair" style="display:flex;flex-wrap:wrap;gap:14px;justify-content:center">
+<a href="{{ waAbrir }}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;justify-content:center;gap:9px;background:#0FBC8C;color:#0E0E0E;font-weight:700;font-size:14.5px;letter-spacing:.5px;text-transform:uppercase;padding:19px 32px;border-radius:100px;box-shadow:0 10px 26px rgba(15,188,140,.38)" style-hover="background:#0A8F6A;color:#fff;transform:translateY(-2px)">Abra sua empresa</a>
+<a href="{{ waTrocar }}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;justify-content:center;gap:9px;background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.4);font-weight:700;font-size:14.5px;letter-spacing:.5px;text-transform:uppercase;padding:19px 32px;border-radius:100px" style-hover="border-color:#0FBC8C;background:rgba(15,188,140,.12);color:#5BE3B3;transform:translateY(-2px)">Trocar de contador</a>
+</div>
 <p style="font-size:13.5px;color:#8F8A7E;margin-top:20px">Ou chame no Instagram <a href="https://instagram.com/mb_contabilpassos" target="_blank" rel="noopener" style="color:#5BE3B3;font-weight:600">@mb_contabilpassos</a></p>
 </div>
 </div>
@@ -322,7 +343,7 @@ Conversar pelo WhatsApp</a>
 <div style="max-width:1200px;margin:0 auto">
 <div style="display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;padding-bottom:38px;border-bottom:1px solid rgba(255,255,255,.1)" class="mb-footgrid">
 <div>
-<img src="assets/mb-logo.png" alt="MB Contábil Life" style="height:70px;width:auto;display:block;margin-bottom:18px" />
+<img src="assets/mb-logo.png" alt="MB Contábil Life" class="mb-footlogo" style="height:70px;width:auto;display:block;margin-bottom:18px" />
 <p style="font-size:14px;line-height:1.7;color:#8F8A7E;max-width:340px">Contabilidade digital para empresários que querem pagar menos imposto, com segurança e sem burocracia. Atendemos em 14 estados do Brasil.</p>
 <div style="display:flex;flex-direction:column;gap:10px;margin-top:18px">
 <a href="https://instagram.com/mb_contabilpassos" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;color:#C9C4B8;font-size:14px;font-weight:500" style-hover="color:#fff"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"></rect><path d="M16 11.4A4 4 0 1 1 12.6 8 4 4 0 0 1 16 11.4zM17.5 6.5h.01"></path></svg>@mb_contabilpassos</a>
@@ -356,6 +377,26 @@ Conversar pelo WhatsApp</a>
 </div>
 </footer>
 
+<sc-if value="{{ popupOpen }}" hint-placeholder-val="{{ false }}">
+<div onClick="{{ closePopup }}" style="position:fixed;inset:0;z-index:400;background:rgba(8,8,8,.72);backdrop-filter:blur(3px);display:flex;align-items:center;justify-content:center;padding:24px;animation:mbfade .25s ease">
+<div onClick="{{ stop }}" role="dialog" aria-modal="true" class="mb-popup" style="position:relative;width:100%;max-width:600px;background:#0E0E0E;border:1px solid rgba(15,188,140,.35);border-radius:30px;padding:0;overflow:hidden;box-shadow:0 40px 100px rgba(0,0,0,.65),0 0 0 1px rgba(255,255,255,.04);animation:mbpop .34s cubic-bezier(.2,.9,.3,1.2)">
+<div style="position:absolute;top:-140px;right:-110px;width:340px;height:340px;border-radius:50%;background:radial-gradient(circle,rgba(15,188,140,.55) 0%,rgba(15,188,140,0) 70%);pointer-events:none"></div>
+<div style="position:absolute;bottom:-160px;left:-120px;width:320px;height:320px;border-radius:50%;background:radial-gradient(circle,rgba(15,188,140,.28) 0%,rgba(15,188,140,0) 70%);pointer-events:none"></div>
+<button onClick="{{ closePopup }}" aria-label="Fechar" style="position:absolute;top:18px;right:18px;z-index:3;width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);color:#fff;font-size:16px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center" style-hover="background:#0FBC8C;color:#0E0E0E;border-color:#0FBC8C">✕</button>
+<div class="mb-popup-in" style="position:relative;z-index:2;padding:54px 48px 46px;text-align:center">
+<span style="display:inline-flex;align-items:center;gap:8px;font-size:11.5px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#5BE3B3;background:rgba(15,188,140,.12);border:1px solid rgba(15,188,140,.3);padding:8px 16px;border-radius:100px">MB Contábil</span>
+<h3 class="mb-popup-h" style="font-size:36px;font-weight:700;letter-spacing:-1.4px;line-height:1.14;color:#fff;margin:22px 0 0;text-wrap:balance">Não deixe sua empresa sem uma <span style="color:#0FBC8C">contabilidade especializada e dedicada</span></h3>
+<p class="mb-popup-p" style="font-size:16px;line-height:1.6;color:#B9B5AC;margin:18px auto 32px;max-width:430px;text-wrap:pretty">Atendimento direto com quem entende do seu negócio — sem robô, sem fila, sem imposto pago a mais.</p>
+<div class="mb-popup-ctas" style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center">
+<a href="{{ waAbrir }}" target="_blank" rel="noopener" onClick="{{ closePopup }}" style="display:inline-flex;align-items:center;justify-content:center;background:#0FBC8C;color:#0E0E0E;font-weight:700;font-size:14.5px;letter-spacing:.5px;text-transform:uppercase;padding:19px 30px;border-radius:100px;box-shadow:0 12px 30px rgba(15,188,140,.42)" style-hover="background:#5BE3B3;transform:translateY(-2px)">Abrir minha empresa</a>
+<a href="{{ waTrocar }}" target="_blank" rel="noopener" onClick="{{ closePopup }}" style="display:inline-flex;align-items:center;justify-content:center;background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.32);font-weight:700;font-size:14.5px;letter-spacing:.5px;text-transform:uppercase;padding:19px 30px;border-radius:100px" style-hover="border-color:#0FBC8C;color:#5BE3B3;background:rgba(15,188,140,.1);transform:translateY(-2px)">Trocar de contador</a>
+</div>
+<p style="font-size:12.5px;color:#6B6B6B;margin-top:22px">Resposta no mesmo dia, direto no WhatsApp.</p>
+</div>
+</div>
+</div>
+</sc-if>
+
 <a href="{{ wa }}" target="_blank" rel="noopener" aria-label="Falar no WhatsApp" class="mb-wa" style="position:fixed;bottom:24px;right:24px;z-index:200;width:60px;height:60px;border-radius:50%;background:#25D366;color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 24px rgba(37,211,102,.45);animation:mbpulse 2.2s infinite" style-hover="background:#20BD5A;transform:scale(1.06)">
 <svg width="34" height="34" viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M16.004 0h-.008C7.174 0 0 7.176 0 16c0 3.5 1.128 6.744 3.046 9.376L1.05 31.33l6.16-1.97A15.9 15.9 0 0 0 16.004 32C24.826 32 32 24.822 32 16S24.826 0 16.004 0zm9.31 22.594c-.386 1.09-1.918 1.994-3.14 2.258-.836.178-1.928.32-5.604-1.204-4.7-1.948-7.726-6.724-7.962-7.038-.236-.314-1.906-2.538-1.906-4.84 0-2.302 1.17-3.422 1.642-3.904.386-.394 1.026-.576 1.64-.576.198 0 .376.01.536.018.472.02.71.048 1.02.79.386.93 1.326 3.232 1.438 3.468.114.236.228.556.068.866-.15.32-.282.462-.518.734-.236.272-.46.48-.696.772-.216.254-.46.526-.188.996.272.46 1.212 1.994 2.594 3.224 1.784 1.588 3.23 2.096 3.748 2.312.386.16.846.122 1.128-.178.358-.386.8-1.026 1.25-1.656.32-.452.724-.508 1.148-.348.432.15 3.008 1.424 3.478 1.658.47.236.78.35.894.548.112.198.112 1.134-.274 2.224z"/></svg>
 </a>
@@ -364,9 +405,20 @@ Conversar pelo WhatsApp</a>
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props="{&quot;whatsappUrl&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;https://wa.me/5535997372138?text=Ol%C3%A1!%20Vim%20do%20site%20da%20MB%20Cont%C3%A1bil%20e%20queria%20mais%20informa%C3%A7%C3%B5es.&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Contato&quot;}}">
 class Component extends DCLogic {
-  state = { menuOpen: false, faqOpen: 0 };
+  state = { menuOpen: false, faqOpen: 0, popupOpen: false };
+
+  startPopupCycle() {
+    this._t1 = setTimeout(() => this.setState({ popupOpen: true }), 1200);
+    this._iv = setInterval(() => this.setState({ popupOpen: true }), 45000);
+  }
+
+  componentWillUnmount() {
+    clearTimeout(this._t1);
+    clearInterval(this._iv);
+  }
 
   componentDidMount() {
+    this.startPopupCycle();
     requestAnimationFrame(() => {
       const els = document.querySelectorAll('[data-reveal]');
       els.forEach(el => {
@@ -447,7 +499,12 @@ class Component extends DCLogic {
       { quote: 'A migração da contabilidade anterior foi tranquila, eles resolveram tudo com o contador antigo. Em uma semana já estava com tudo em ordem.', name: 'Patrícia Nogueira', role: 'Clínica · Lucro Presumido', initial: 'P', photo: 'assets/depoimento-patricia.png' },
       { quote: 'O que mais me pegou foi a resposta rápida. Mando mensagem no WhatsApp e falo com quem entende do meu caso, não com atendente.', name: 'Diego Ferraz', role: 'Prestação de serviços · ME', initial: 'D', photo: 'assets/depoimento-diego-avatar.png' },
     ];
-    const testimonials = rawTestimonials.map(t => ({ ...t, hasPhoto: !!t.photo, noPhoto: !t.photo }));
+    const testimonials = rawTestimonials.map(t => ({
+      ...t,
+      hasPhoto: !!t.photo,
+      noPhoto: !t.photo,
+      avatar: t.photo ? React.createElement('img', { src: t.photo, alt: t.name, style: { width: 44, height: 44, borderRadius: '50%', objectFit: 'cover', objectPosition: '57% 26%', display: 'block', flexShrink: 0 } }) : null
+    }));
 
     const rawFaqs = [
       { q: 'Vocês atendem empresas de qualquer estado?', a: 'Sim. O atendimento é 100% digital e hoje já estamos presentes em 14 estados do Brasil. Toda a rotina acontece por WhatsApp e envio digital de documentos.' },
@@ -465,8 +522,14 @@ class Component extends DCLogic {
       toggle: () => this.setState(s => ({ faqOpen: s.faqOpen === i ? -1 : i })),
     }));
 
+    const waBase = 'https://wa.me/5535997372138?text=';
     return {
       wa,
+      waAbrir: waBase + encodeURIComponent('Olá! Vim do site da MB Contábil e quero abrir minha empresa.'),
+      waTrocar: waBase + encodeURIComponent('Olá! Vim do site da MB Contábil e quero trocar de contador.'),
+      popupOpen: this.state.popupOpen,
+      closePopup: () => this.setState({ popupOpen: false }),
+      stop: (e) => e.stopPropagation(),
       menuOpen: this.state.menuOpen,
       toggleMenu: () => this.setState(s => ({ menuOpen: !s.menuOpen })),
       closeMenu: () => this.setState({ menuOpen: false }),
